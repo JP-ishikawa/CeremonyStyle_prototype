@@ -1,0 +1,1037 @@
+@charset "utf-8";
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+}
+
+
+*{
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-family: "M PLUS Rounded 1c", sans-serif;
+	font-style: normal;
+	color:#8E8186;
+	overflow-x: hidden;
+}
+
+/* ----------------------------------------------------------------------------------------*/
+
+
+/*タイトル部分全体の設定*/
+.title-container{
+	position:relative;
+	width:100%;
+	padding:30px;
+/*高さを画面の45%の位置に自動調整*/
+	height:40vh;
+	max-height:700px;
+/*要素が見きれないように最低の高さを設定*/
+	min-height:270px;
+	overflow:hidden;
+	display: flex;
+	align-items: center; /* 上下中央揃え */
+	justify-content: center; /* 左右中央揃え（必要に応じて） */
+}
+
+
+/*背景画像の設定*/
+.background-main{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	margin:0;
+	object-fit:cover;
+	object-position: center; /* 中央揃え*/
+	display: block; /* ← 念のため指定 */
+	z-index:1;
+}
+
+/*ロゴと店名アイコン*/
+.title-content{
+	position:relative;
+	z-index:2;
+	width:100%;
+	max-width:100%;
+	height:auto;
+	max-height:95vw;
+	margin:0 auto;
+	padding:20px;
+/*タイトルロゴと店名アイコンは縦並び*/
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	box-sizing:border-box;
+}
+
+/* ロゴ：やや上に配置 */
+.title-main{
+	width:60vw;
+	max-width:700px;
+	height:auto;
+	max-height:90%;
+	margin-bottom:20px;
+	transform:none;
+}
+
+/* グリッドで配置した店名アイコン */
+.grid-shopicon{
+	display:grid;
+	grid-template-columns:repeat(4,1fr);
+	gap:0;
+	width:55vw;
+	max-width:600px;
+	height:auto;
+	margin:0 auto;
+	justify-content:center;
+}
+
+/* 店名アイコンの設定*/
+.grid-shopicon img{
+	width:80%;
+	height:auto;
+}
+
+/* ----------------------------------------------------------------------------------------*/
+
+/* 見出しエリア*/
+
+.midashi-container{
+	width:100%;
+	height:auto;
+	margin:5px auto;
+}
+
+.midashi-area{
+	width:100%;
+	height:auto;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	margin:0;
+	}
+
+
+.midashi-grid{
+	display:grid;
+	grid-template-columns:repeat(4,1fr);
+	gap:5%;
+	width:80%;
+	max-width:800px;
+	margin:20px 20px;
+	box-sizing:border-box;
+	}
+	
+	
+.midashi-grid a img{
+	width:100%;
+	height:auto;
+	max-height:90px;
+	margin:0 auto;
+	display:block;
+	object-fit: contain; /* 必要に応じて枠内に収める調整 */
+}
+
+/* ----------------------------------------------------------------------------------------*/
+
+/* ▼メインコンテンツ部分 */
+
+/* ▼コンテンツコンテナ部分 */
+.contents-container,
+.contents-container-p,
+.contents-container-b{
+	position: relative;
+	width: 100%;
+	height:100%;
+	padding-bottom:100px;
+	justify-content: center;
+	align-items: center;
+}
+
+.contents-container-p {
+	border-top:3px solid rgb(255, 190, 180);
+	padding-bottom:50px;
+}
+
+.contents-container-b {
+	border-top:3px solid rgb(202, 182, 153);
+	padding-bottom:50px;
+}
+
+/* ▼最下部のみ余白無 */
+#favoritebland.contents-container-b{
+	padding-bottom:0px;
+}
+
+#information.contents-container{
+	padding-bottom:0px;
+}
+
+
+/* ▼各コンテンツの見出し部分 */
+.contents-title {
+	position: relative;
+	display:flex;
+	width:100%;
+	justify-content: center;
+}
+
+/* ▼見出しの背景部分（ピンクのグラフィック） */
+.contents-title-background{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	width:auto;
+	height:100%;
+	max-height:50px;
+}
+
+.contents-title-background img{
+	width:100%;
+	max-width:2000px;
+	height:auto;
+	margin-bottom:10px;
+}
+
+#recommendstyling .contents-title-background img{
+	max-width:2000px
+}
+
+
+
+/* ▼見出しのロゴと文字 */
+.contents-title-midashi {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:fit-content;
+	gap:50px;
+	padding:20px;
+	margin:0 auto;
+	z-index: 1;
+}
+		
+	
+#information .contents-title-midashi {
+	flex-direction:column;
+	}	
+		
+/* 画面が1600px以下のとき、縦配置 */
+@media (max-width: 1600px) {
+	.contents-title-midashi {
+		display: grid;
+		grid-template-columns: 1fr; /* 縦並びに変更 */
+		row-gap:20px;
+		justify-items: center; /* アイテムを中央揃え */
+		text-align: center;}
+}	
+	
+	
+.contents-title-midashi img {
+	width:auto;
+	max-width:500px;
+	height:90%;
+	}
+	
+	
+/* ▼各コンテンツ見出しの文字 */
+.contents-title-midashi p {
+	width:auto;
+	max-width:40vw;
+	font-size: clamp(0.9rem, 1rem, 1rem);
+	font-weight: bold;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	color: #898085;
+	letter-spacing: 0.1em; /* 文字と文字の間を広げる */
+}
+	
+	
+#information .contents-title-midashi p {
+	flex-direction:column;
+	max-width:75vw;
+	text-align:center;
+	}	
+	
+		
+/* ▼背景の花 */
+.background-flowerA,
+.background-flowerB {
+	position: absolute;
+	width: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0.5; /* 0が完全に透明、1が不透明 */
+}
+
+.background-flowerA {
+	top: 0; /* 調整してください */
+	z-index: -1;
+}
+
+.background-flowerB {
+	bottom: 0; /* 調整してください */
+	z-index: -1;
+}
+
+	/* ----------------------------------------------------------------------------------------*/
+	
+
+/* 各コンテンツのコンテナ*/
+.contents-item-container {
+	display: grid;
+	z-index: 3;
+	grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* 適宜幅調整 */
+	row-gap: 100px;     /* 行の間隔 */
+	column-gap: 70px;  /* 列の間隔 */	
+	justify-content: center; /* 水平方向の中央揃え */
+	padding: 0 5vw;
+	max-width:1200px;
+	margin:20px auto;
+	box-sizing: border-box;
+}
+	
+	
+#recommendstyling .contents-item-container {
+	grid-template-columns: repeat(auto-fit, minmax(900px, 1fr)); /* 適宜幅調整 */
+	justify-content: center; /* 水平方向の中央揃え */
+	margin-top:0;
+	max-width:2000px;
+}
+	
+/* 画面が1890px以下のとき、常に1列に固定 */
+@media (max-width: 1890px) {
+		#recommendstyling .contents-item-container {
+			grid-template-columns: 1fr;
+			row-gap: 50px;     /* 行の間隔 */
+		}
+}
+		
+		
+	
+/* ----------------------------------------------------------------------------------------*/
+
+
+
+/* 各アイテムのコンテナ*/
+.item-container {
+	display:grid;
+	grid-template-columns: 1fr 0.6fr; /* 写真：テキストの比率 */
+	gap:8%;
+	width:100%;
+	height:auto;
+	max-width:500px;
+	padding:20px;
+	margin:0 auto;
+	justify-content: center; /* 水平方向の中央揃え */
+	background-color: rgba(255, 255, 255, 0.3); /* 半透明の白*/
+	border-radius: 30px; /* お好みで数値を調整 */
+	position: relative; /* 疑似要素を画像の位置に配置するため */
+}
+		
+#recommendstyling .item-container {
+	grid-template-columns: 5fr 1fr; /* 写真：テキストの比率 */
+	gap:2%;
+	max-width:900px;
+}
+	
+	
+	
+@media (max-width: 768px) {
+	/* 各アイテムのコンテナ*/
+		.item-container{
+				grid-template-columns: 1fr 0.5fr; /* 写真：テキストの比率 */
+				gap:6%;
+				max-width:350px;
+				padding:10px;
+				justify-items: center; /* 横方向に中央揃え */
+				}
+		
+				#recommendstyling .item-container {
+				grid-template-columns: 1fr; /* 写真：テキストの比率 */
+				}
+		
+		/* 各アイテムの画像*/
+		#recommendstyling .contents-item-photo img{
+				display: block;
+				width: 100%;
+				max-width:400px;
+				height: auto;
+				margin:0 auto;
+				}
+}
+	
+	
+	
+	
+/* 各アイテムの画像エリア */
+.contents-item-photo-p,
+.contents-item-photo-b {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative; /* 疑似要素を画像の位置に配置するため */
+    z-index: 3;
+}
+	
+#recommendstyling .contents-item-photo{
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative; /* 疑似要素を画像の位置に配置するため */
+    z-index: 3;
+}
+		
+/* 各アイテムの画像 */
+.contents-item-photo-p img,
+.contents-item-photo-b img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* お好みで数値を調整 */
+    transform: none; /* 傾けを解除 */
+}
+	
+#recommendstyling .contents-item-photo img{
+    display: block;
+    width: 100%;
+    height: auto;
+	}
+	
+	
+/* 枠線ピンク */
+.photo-border-p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(255, 190, 180);
+    transform: rotate(-2deg); /* 枠線の傾き */
+    pointer-events: none; /* 枠線が画像の操作を邪魔しないように */
+    box-sizing: border-box;
+    z-index: 6;
+    border-radius: 15px;
+}
+
+
+/* 枠線ベージュ */
+.photo-border-b {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(202, 182, 153);
+    transform: rotate(-2deg); /* 枠線の傾き */
+    pointer-events: none; /* 枠線が画像の操作を邪魔しないように */
+    box-sizing: border-box;
+    z-index: 6;
+    border-radius: 15px;
+}
+
+	
+/* 各アイテムのテキストエリア*/
+		
+.item-textarea {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	box-sizing:border-box;
+	margin-top:3%;
+	max-width:250px;
+	}	
+	
+#recommendstyling .item-textarea {
+	max-width:350px;
+	}
+	
+@media (max-width: 768px) {	
+	.item-textarea {
+	max-width:140px;
+	}	
+}	
+	
+/* 各アイテムのロゴ*/
+.item-logo {
+	width:auto;
+	height:auto;
+}
+
+.item-logo img {
+	max-width:230px;
+	max-height:40px;
+}
+	
+@media (max-width: 768px) {	
+	.item-logo img {
+		max-width:150px;
+		max-height:30px;
+}
+}	
+	
+	
+/* 各アイテムのロゴ_2項目目のみマージントップを設定*/
+.item-textarea .item-logo:nth-of-type(n+2) {
+  margin-top: 2em; /* 任意のスタイル */
+}
+	
+
+/* 各アイテムのテキスト部分の調整*/
+.item-text-blandname{
+	margin-bottom:1.5em;
+}
+	
+.item-text-copy{
+	margin-bottom:5%;
+	font-size: clamp(0.5rem, 0.9rem, 0.9rem);
+	line-height: 1.4; /* 倍率で指定（推奨） */
+}
+	
+@media (max-width: 768px) {
+	.item-text-copy{
+		font-size: clamp(0.4rem, 0.8rem, 0.8rem);
+	}
+}
+	
+.item-text-name{
+	text-align:center;
+	font-size: clamp(0.5rem, 1rem, 1rem);
+	font-weight:bold;
+	margin-top:0.2em;
+}
+	
+@media (max-width: 768px) {
+	.item-text-name{
+		font-size: clamp(0.8rem, 0.9rem, 0.9rem);
+	}
+}	
+	
+.number-icon {
+  height: 2em; /* テキストと揃える */
+  vertical-align: middle;
+  margin-right: 0.3em; /* 画像と文字の間のスペース */
+  vertical-align: text-bottom; /* または baseline, middle など試す */
+}
+	
+	
+.item-text-details{
+	font-size: clamp(0.5rem, 0.8rem, 0.8rem);
+	text-align:center;
+	line-height: 1.3; /* 倍率で指定（推奨） */
+	letter-spacing: -0.05em;
+	padding-bottom:0.3em;
+}
+
+.item-text-price{
+	text-align:center;
+	font-size: clamp(0.5rem, 0.75rem, 0.75rem);
+	line-height: 1.3; /* 倍率で指定（推奨） */
+	margin-bottom:0.5em;
+}
+
+.price-number{
+	font-weight:bold;
+	font-size:1.5em;
+}
+	
+@media (max-width: 768px) {
+	.price-number{
+		font-weight:bold;
+		font-size:1.3em;}
+}		
+	
+	
+	
+.item-text-warning{
+	font-size: clamp(0.5rem, 0.75rem, 0.75rem);
+	margin-bottom:1em;
+	letter-spacing: -0.05em;
+}
+
+.item-text-warning-2{
+	font-size: clamp(0.5rem, 0.75rem, 0.75rem);
+	margin-top:2em;
+	margin-bottom:1em;
+	letter-spacing: -0.05em;
+}	
+		
+	
+.item-text-shop-pink{
+	font-size: clamp(0.5rem, 1rem, 1rem);
+	white-space: nowrap;/* 改行させない */
+	margin-top:6%;
+	background-color: rgb(255, 190, 180); 
+	color: #FFF; /* 文字色 */
+	padding: 3px 15px; /* 内側の余白 */
+	border-radius: 8px; /* 角丸の半径 */
+	display: inline-block; /* 横幅を内容に合わせる */
+}
+	
+	
+.item-text-shop-beige{
+	font-size: clamp(0.5rem, 1rem, 1rem);
+	white-space: nowrap;/* 改行させない */
+	margin-top:6%;
+	background-color: rgb(202, 182, 153); 
+	color: #FFF; /* 文字色 */
+	padding: 3px 15px; /* 内側の余白 */
+	border-radius: 8px; /* 角丸の半径 */
+	display: inline-block; /* 横幅を内容に合わせる */
+}
+	
+	
+.item-textarea .contents-item-photo-sub{
+	width:100%;
+	height:auto;
+	margin: 0 auto;
+}
+	
+.item-textarea .contents-item-photo-sub img{
+	display:block;	
+	width:70%;
+	height:auto;
+	margin: 10px auto;
+}
+
+	
+	
+	
+	
+	
+/* ----------------------------------------------------------------------------------------*/
+	
+/* インフォメーションエリア */
+.shopinfo-container-ct,
+.shopinfo-container-ss	{
+	display: flex;
+	justify-content: space-between; /* 横中央揃え */
+	align-items: center;
+	width:100%;
+	max-width: 900px;
+	margin: 30px auto;
+	padding:0 15px;
+	box-sizing: border-box;
+	text-align: center;
+	gap: 0;
+	}
+	
+@media (max-width: 768px) {
+	.shopinfo-container-ct,
+	.shopinfo-container-ss	{
+	    flex-direction: column;
+		}
+	}	
+	
+		
+/*店舗写真*/	
+.shopinfo-item.photo{
+	width:100%;
+	max-width:300px;
+	height:auto;
+	padding:20px;
+	margin:0 auto;
+	}	
+	
+.shopinfo-item.photo img{
+	width:100%;
+	min-width:200px;
+	height: auto;
+	margin:0 auto;
+	display: block;	
+	aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    object-fit: cover;
+	}	
+		
+	
+/*店舗テキスト*/	
+.shopinfo-item.text{
+	width:100%;
+	min-width:100px;
+	}
+	
+.shop-floor {
+	font-size: clamp(0.5rem, 1rem, 1rem);
+  letter-spacing: 0.1em;
+}
+		
+/*4番目の<div>（川越店4階）のみにマージントップを適用*/		
+.shopinfo-text.text-B > .shop-floor:nth-child(4) {
+  margin-top: 2em;
+}
+
+.shop-nameA,
+.shop-nameA-ss{
+	font-size: clamp(0.5rem, 1.2rem, 1.2rem);
+	font-weight:bold;
+	line-height: 1.3;
+	letter-spacing: 0.1em; 
+	margin-top:0.2em;
+	}
+	
+.shop-nameA-ss{
+	letter-spacing: 0; 
+	}	
+	
+.shop-nameB{
+	font-size: clamp(0.4rem, 0.8rem, 0.8rem);
+	margin-bottom:2em;
+	}
+	
+
+	
+	
+/*CLICK&TRYコンテナ*/	
+	
+.clicktry-container{
+	width:100%;
+	height:auto;
+	padding:50px;		
+	margin:0 auto;
+	background-color:#fffaf3;
+	position: relative;
+	margin-bottom: 40px; /* 下に余白 */
+	}
+	
+/* 点線を::afterで追加 */
+.clicktry-container::after {
+  content: "";
+  position: absolute;
+  bottom: -20px; /* コンテナの下からどれくらい離すか調整 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80vw; /* 画面幅の80%など。必要に応じて調整 */
+  height: 5px;
+  background-image: radial-gradient(circle, rgb(202, 182, 153) 1px, transparent 3px);
+  background-repeat: repeat-x;
+  background-size: 12px 6px; /* 点線の間隔 */
+  pointer-events: none;
+}	
+	
+		
+.clicktry-title{
+	display:flex;
+	gap: 40px; /* ここで間隔を広げる（例：40px） */
+	width:100%;
+	height:auto;
+	margin:30px auto;	
+	justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 縦方向の中央揃え */
+	max-width:800px;
+	}
+	
+.clicktry_titlelogo{	
+	width:35vw;
+	max-width:400px;
+	height:auto;
+	}		
+		
+.clicktry_titlepict{	
+	width:25vw;
+	max-width:300px;
+	height:auto;
+	}		
+		
+.shop-copy{
+	font-size: clamp(0.5rem, 1rem, 1rem);
+	width:100%;
+	max-width:800px;
+	margin:50px auto;		
+	text-align:center;
+	}
+	
+.copy-highlight{
+	font-size:1.2rem;
+	font-weight:bold;
+	display:inline-block;
+	margin-bottom:0.5em;
+	}		
+		
+	
+.clicktry-logo-container{
+	display:grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, max-content));
+	gap:25px;
+	width:100%;
+	height:auto;
+	max-width:1200px;
+	padding:40px;
+	margin:10px auto;
+	justify-content: center; /* 水平方向の中央揃え */
+	background-color: rgba(255, 255, 255); /* 半透明の白*/
+	border-radius: 20px; /* お好みで数値を調整 */
+	}
+		
+.ct_logo{
+	width:auto;
+	max-width:120px;
+	margin: 0 auto; /* 画像自体を中央寄せ */
+	height:100%;
+	}	
+	
+.clicktry-logotext{
+	margin-bottom:1em;
+	text-align:center;
+	}		
+	
+.shop-warning{
+	width:100%;
+	text-align:center;
+	margin:0 auto;
+	max-width:1200px;
+	font-size:0.75em;
+	}
+	
+	
+/*サンヨースタイルストアコンテナ*/	
+.shopinfo-container-ss .shop-nameA{
+		font-size:1.25em;
+	}
+	
+.trypick-container{
+	width:100%;
+	height:auto;
+	padding:5vw;		
+	box-sizing: border-box; /* パディング含めて幅制限 */
+	margin:0 auto;
+	background-color:#e5f0ef;
+	overflow-x: hidden;     /* 念のため横スクロール防止 */
+	}
+
+.trypick-title{
+	display:flex;
+	gap: 40px; /* ここで間隔を広げる（例：40px） */
+	width:100%;
+	height:auto;
+	margin:30px auto;	
+	justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 縦方向の中央揃え */
+	max-width:1200px;
+	}
+	
+.trypick_titlelogo{	
+	width:40vw;
+	max-width:400px;
+	height:auto;
+	}		
+		
+.trypick_titlepict{	
+	width:30vw;
+	max-width:300px;
+	height:auto;
+	}		
+				
+.trypick-photocontainer{
+	display:flex;
+	flex-wrap: wrap;
+	gap:0px;	
+	justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 縦方向の中央揃え */
+	width:100%;
+	max-width:1000px;	
+	margin:0 auto;
+	text-align: center;
+	}
+
+.trypick-item {
+  flex: 1 1 100px; /* 10pxは余白やマージンの調整に依存 */
+  margin: 5px auto; /* 適宜調整 */
+}
+	
+.trypick-item.image img.photo {
+	display: block;
+	width:100%;
+	max-width: 350px;
+	height: auto;
+	margin:0 auto;
+	object-fit: contain; /* 画像の縦横比を保ちつつフィット */
+}	
+	
+.trypick-item.arrow{
+		width:100%;
+		max-width:100px;
+	}
+	
+.trypick-item.arrow img.arrow{
+  width: 40%; /* 矢印 画像の大きさに応じて調整 */
+  height: auto;
+}
+	
+
+/* 狭い画面では縦並びに変更 */
+@media (max-width: 768px) {
+  .trypick-photocontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .trypick-item {
+    flex: 1; /* これが一番重要！各要素を等分配 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .trypick-item.image img.photo {
+    max-width: 50%;
+    max-height:70%;
+	margin:5%;
+	object-fit: contain;
+    display: block;
+  }
+
+  .trypick-item.arrow img.arrow {
+    transform: rotate(90deg);
+    transform-origin: center;
+    width: 40%;
+    height: auto;
+    display: block;
+  }
+}
+
+	
+	
+	
+	
+/* ----------------------------------------------------------------------------------------*/
+	
+	
+
+/* トップへ戻るボタン*/
+
+.back-to-top {
+	position: fixed;
+	bottom: 20px;
+ 	right: 20px;
+	background: #333;
+	color: #fff;
+	padding: 10px 15px;
+	border-radius: 50%;
+	font-size: 20px;
+	display: none; /* 初期状態で非表示 */
+	z-index: 1000;
+}
+
+.back-to-top:hover {
+  background: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------*/
+
+
+/* 画面が小さくなった場合の設定 */
+@media (max-width: 768px) {
+	
+	
+/* タイトルエリア*/
+		.title-container{
+				width:100%;
+				max-height:350px;}
+	
+		.background-main{
+				width:100%;	}
+	
+		.title-main{
+				width:90vw;
+				max-width:500px;
+				min-width:200px;}
+		
+		.grid-shopicon{
+				grid-template-columns: repeat(2, 1fr);
+				max-width:200px;
+				column-gap:5%;
+				row-gap:20%;
+				margin:0 auto;
+				box-sizing:border-box}
+				
+		.grid-shopicon img{
+				width:100%;
+				height:auto;
+				margin:0 auto;
+				justify-content:center;}
+
+		.title-content{
+				width:100vw;}
+		
+		
+/* 見出しエリア*/		
+		.midashi-container{
+				max-height:250px;
+				}
+			
+			
+		.midashi-grid{
+				grid-template-columns:repeat(2,1fr);
+				column-gap:5vw;
+				width:100%;
+				margin:10px auto;
+				margin-top:15px;
+				padding:0 16px;
+				}
+		
+		.midashi-grid a img{
+				width:auto;
+				height:70%;}
+		
+		
+/* メインコンテンツエリア*/		
+		.contents-title-midashi {
+				display: grid;
+				grid-template-columns: 1fr; /* 縦並びに変更 */
+				justify-items: center; /* アイテムを中央揃え */
+				text-align: center;
+				gap:10px;} /* テキストも中央揃え */
+		
+		.contents-title-midashi p {
+				font-size: clamp(0.7rem, 0.85rem, 0.85rem);
+				max-width:70vw;}
+		
+		.contents-title-midashi img {
+				width:80vw;
+				max-width:350px;}
+			
+			
+
+			
+
+		.item-text-shop-pink,
+		.item-text-shop-beige{
+				padding: 2px 10px; /* 内側の余白 */
+				font-size:85%;}
+	}
+	
+	
+	
+	
+	
+	
